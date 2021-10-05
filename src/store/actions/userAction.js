@@ -19,7 +19,7 @@ export const getUsers = () => async (dispatch) => {
   }
 };
 
-export const getUserPosts = (id) => async (dispatch) => {
+export const getPosts = (id) => async (dispatch) => {
   try {
     const result = await axios.get(
       `https://jsonplaceholder.typicode.com/posts?userId=${id}`

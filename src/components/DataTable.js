@@ -1,25 +1,24 @@
 import React, { useState } from 'react';
 import { Table } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { getUserPosts } from '../store/actions/userAction';
+import { getPosts } from '../store/actions/userAction';
 import PostModal from './PostModal';
 
-const DataTable = ({ headers, rows, getUserPosts, userPosts }) => {
+const DataTable = ({ headers, rows, getPosts, userPosts }) => {
   const [show, setShow] = useState(false);
+
   const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
 
-  const handleClose = () => {
-    setShow(false);
-  };
-
-  const clickableRow = async (id) => {
+  const rowClick = async (id) => {
     try {
-      await getUserPosts(id.id);
+      await getPosts(id.id);
       handleShow();
-    } catch (err) {
-      console.log('error', err);
+    } catch (error) {
+      console.log('error', error);
     }
   };
+
   return (
     <div>
       <Table striped bordered hover>
@@ -39,7 +38,7 @@ const DataTable = ({ headers, rows, getUserPosts, userPosts }) => {
           {rows &&
             rows.map((value) => {
               return (
-                <tr key={value.id} onClick={() => clickableRow(value)}>
+                <tr key={value.id} onClick={() => rowClick(value)}>
                   <td>{value.name}</td>
                   <td>{value.email}</td>
                   <td>{value.address.city}</td>
@@ -58,4 +57,4 @@ const mapStateToProps = (state) => {
     userPosts: state.users.posts,
   };
 };
-export default connect(mapStateToProps, { getUserPosts })(DataTable);
+export default connect(mapStateToProps, { getPosts })(DataTable);
