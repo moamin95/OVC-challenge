@@ -22,11 +22,11 @@ const PostModal = ({ data, show, click }) => {
         </Modal.Header>
         <Modal.Body>
           {data.map((post, index) => (
-            <div>
+            <div key={post.id}>
               <p style={{ fontWeight: 'bold' }}>{`${
                 index + 1
               }. ${post.title.toUpperCase()}`}</p>
-              <h6 key={post.id}>{capitalize(post.body)}.</h6>
+              <h6>{capitalize(post.body)}.</h6>
               <p aria-hidden='true'>
                 <Placeholder className='w-100' bg='primary' />
               </p>
@@ -44,15 +44,3 @@ const PostModal = ({ data, show, click }) => {
 };
 
 export default PostModal;
-
-{
-  /* <Modal show={show} onHide={click}>
-  <Button onClick={click}>X</Button>
-  {data.map((post) => (
-    <div>
-      <p key={post.id}>{post.body}</p>
-    </div>
-  ))}
-</Modal>;
- */
-}

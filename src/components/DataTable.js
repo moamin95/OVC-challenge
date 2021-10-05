@@ -12,7 +12,7 @@ const DataTable = ({ headers, rows, getUserPosts, userPosts }) => {
     setShow(false);
   };
 
-  const clickable = async (id) => {
+  const clickableRow = async (id) => {
     try {
       await getUserPosts(id.id);
       handleShow();
@@ -39,7 +39,7 @@ const DataTable = ({ headers, rows, getUserPosts, userPosts }) => {
           {rows &&
             rows.map((value) => {
               return (
-                <tr key={value.id} onClick={() => clickable(value)}>
+                <tr key={value.id} onClick={() => clickableRow(value)}>
                   <td>{value.name}</td>
                   <td>{value.email}</td>
                   <td>{value.address.city}</td>
