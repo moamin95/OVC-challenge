@@ -6,6 +6,7 @@ export const getUsers = () => async (dispatch) => {
     const result = await axios.get(
       `https://jsonplaceholder.typicode.com/users`
     );
+
     dispatch({
       type: GET_USERS,
       payload: result.data,
@@ -23,6 +24,7 @@ export const getUserPosts = (id) => async (dispatch) => {
     const result = await axios.get(
       `https://jsonplaceholder.typicode.com/posts?userId=${id}`
     );
+    console.log(result.data);
     dispatch({
       type: GET_POSTS,
       payload: result.data,
