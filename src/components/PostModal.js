@@ -1,5 +1,6 @@
 import React from 'react';
-import { Modal, Button, Placeholder } from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
+import './styles/postModal.css';
 
 const PostModal = ({ data, show, click }) => {
   const capitalize = (str) => {
@@ -22,14 +23,10 @@ const PostModal = ({ data, show, click }) => {
         </Modal.Header>
         <Modal.Body>
           {data.map((post, index) => (
-            <div key={post.id}>
-              <p style={{ fontWeight: 'bold' }}>{`${
-                index + 1
-              }. ${post.title.toUpperCase()}`}</p>
+            <div className='post-container' key={post.id}>
+              <p>{`${index + 1}. ${post.title.toUpperCase()}`}</p>
               <h6>{capitalize(post.body)}.</h6>
-              <p aria-hidden='true'>
-                <Placeholder className='w-100' bg='primary' />
-              </p>
+              <p aria-hidden='true'></p>
             </div>
           ))}
         </Modal.Body>

@@ -1,13 +1,8 @@
 import React from 'react';
+import './styles/heading.css';
 
 const Heading = () => {
-  const headingStyle = {
-    textTransform: 'uppercase',
-    textAlign: 'center',
-    marginTop: '20px',
-  };
-
-  return <h2 style={headingStyle}>User List</h2>;
+  return <h2 className='heading'>User List</h2>;
 };
 
 export default Heading;

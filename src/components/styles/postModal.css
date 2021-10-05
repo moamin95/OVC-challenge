@@ -1,0 +1,20 @@
+.modal-title {
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.post-container {
+  padding: 10px;
+}
+
+.post-container > p {
+  font-weight: bold;
+}
+
+.post-container:nth-child(even) {
+  background: #4da8da;
+  color: white;
+}
+.post-container:nth-child(odd) {
+  background: #f3f3f3;
+}

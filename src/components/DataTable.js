@@ -22,7 +22,7 @@ const DataTable = ({ headers, rows, getUserPosts, userPosts }) => {
   };
   return (
     <div>
-      <Table striped bordered hover style={{ marginTop: '3vh' }}>
+      <Table striped bordered hover>
         <thead>
           <tr>
             {headers &&
